@@ -37,7 +37,8 @@ public class UpdateServlet extends HttpServlet {
             request.getRequestDispatcher("WEB-INF/update.jsp").forward(request,response);
 
         }else{
-            throw  new RuntimeException("Person with name \'"+name+" "+surname+ "\' not found");
+            response.sendError(404,"Person with name "+name+" "+surname+" wasnt found");
+//            throw  new RuntimeException("Person with name \'"+name+" "+surname+ "\' not found");
         }
 
     }

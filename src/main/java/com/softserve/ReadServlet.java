@@ -26,8 +26,12 @@ public class ReadServlet extends HttpServlet {
             request.setAttribute("surname",surname);
             request.setAttribute("address",address);
             request.getRequestDispatcher("WEB-INF/read.jsp").forward(request,response);
-        }else{
-            throw  new RuntimeException("Person with name \'"+name+" "+surname+ "\' not found");
+        }
+        else{
+            response.sendError(404,"Person with name "+name+" "+surname+" wasnt found");
+//            request.setAttribute("message","Person with name "+name+" "+surname+" not found in record book");
+//            request.getRequestDispatcher("WEB-INF/Error.jsp").forward(request,response);
+//            throw  new RuntimeException("Person with name \'"+name+" "+surname+ "\' not found");
         }
 
     }
